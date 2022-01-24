@@ -1,0 +1,73 @@
+:root {
+  --text-color: rgba(0, 0, 0, 0.301)
+}
+body {
+    margin: 0;
+}
+header{
+    display: flex;
+    justify-content: space-between;  
+    align-items: flex-end;
+    padding: 0 8em;
+    height: 10em;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+main{
+    height: 18em;
+    padding-top: 5em;
+    text-align: center;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+.center-opening {
+    align-items: center;
+}
+#questions {
+    font-weight: bolder;
+    font-size: 40px;
+    margin: 0;
+}
+.rules {
+    font-size: 25px;
+    margin-top: 0px;
+}
+.btn, .answer-choices {
+ background: rgba(68, 12, 68, 0.877);
+ color: white;
+ font-size: 25px;
+ padding: 6px;
+ border-radius: 10px;
+ list-style: none;
+}
+.btn {  
+    width: 140px;
+}
+.answer-choices {
+    width: 147%;
+    text-align: left;
+    padding-left: 10px;
+    margin: 5px 0;
+}
+#answers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+}
+.btn:hover {
+    background-color: purple;
+}
+.answer-choices:hover {
+    background-color: purple;
+}
+.choice-made { 
+    border-bottom: 5px solid var(--text-color);
+}
+.wrong-or-right {
+    font-style: italic;
+    color: var(--text-color);
+}
