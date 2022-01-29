@@ -13,3 +13,8 @@ Once you have gone through all of the questions, you may add your name and submi
 All scores will be displayed at the end of the quiz or you can click on the View High Scores link at the top left of the page. 
 
 Good luck! Happy coding quiz! 
+
+
+![Alt text](./assets/images/codingquiz.png)
+![Alt text](./assets/images/working.png)
+![Alt text](./assets/images/highscores.png)
