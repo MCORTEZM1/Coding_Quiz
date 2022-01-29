@@ -15,6 +15,6 @@ All scores will be displayed at the end of the quiz or you can click on the View
 Good luck! Happy coding quiz! 
 
 
-![Alt text](/assets/images/codingquiz.png "Title")
-![Alt text](/assets/images/working.png "Title")
-![Alt text](/assets/images/highscores.png "Title")
+![Alt text](/assets/images/codingquiz.PNG "Title")
+![Alt text](/assets/images/working.PNG "Title")
+![Alt text](/assets/images/highscores.PNG "Title")
