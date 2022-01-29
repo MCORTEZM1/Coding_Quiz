@@ -81,3 +81,7 @@ main{
     margin: 0;
     justify-content: left;
 }
+#high-scores {
+    text-decoration: none;
+    font-size: 25px;
+}

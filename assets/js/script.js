@@ -9,6 +9,8 @@ var score = [{
     highscore: score
 }];
 
+
+// question objects 
 var question1 = {
     question: "Commonly used data types DO NOT include:",
     choices: [
@@ -50,11 +52,13 @@ var question5 = {
     {text: "4. curly brackets", correct: true}]
 };
 
+// Array of question objects
 const questionsArr = [question1, question2, question3, question4, question5];
 
+// to make global and call into randomizer function 
 let shuffledQuestions, currentQuestionIndex
 
-
+// starts quiz after start button clicked
 var startQuiz = function () {
     questionsEl.textContent = "Coding Quiz Challenge";
     
@@ -83,19 +87,22 @@ var startQuiz = function () {
       quizEl.appendChild(startBtn)
   
   };
-  startQuiz();
+// initialize quiz on load. 
+startQuiz();
 
+// shuffles questions and resets HMTL state  
 function setNextQuestion (){
     resetState();
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
-
+// display question on window 
 function showQuestion(question) {
     questionsEl.innerHTML = question.question;
     question.choices.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add('btn');
+        // checks if question is answer correctly and applies penalty if false 
         if(answer.correct) {
             button.dataset.correct = answer.correct;
         }
@@ -113,7 +120,7 @@ function showQuestion(question) {
     });
 };
 
-
+// clears questions and prompt user input data for highscore 
 var endGame = function() {
     questionsEl.textContent = "All done!";
 
@@ -143,37 +150,35 @@ var endGame = function() {
         event.preventDefault();
         quizEl.removeChild(record);
         answerChoicesEl.removeChild(score);
-        save();
-        highScores();
+        console.log("Submit button clicked", addName.value); 
+        save(addName.value, timeScore);
     })
     name.appendChild(submitBtn);
     
     quizEl.appendChild(record);
 };
 
-function save(){
+// save user data and highscore
+function save(playerName, playerScore){
     // get data from input
-    var newData = addName.value;
-
-    // if there is nothing saved at the start, then create an empty array
-    if(localStorage.getItem('highscores' == null)){
-        localStorage.setItem('highscores', '[]');
+    var newData = { 
+        name: playerName, 
+        score: playerScore
     }
     
-    // get old data and add it to the new data
-    var oldData = JSON.parse(localStorage.getItem('highscores'));
+    // get old data and add it to the new data || if there is nothing saved at the start, then create an empty array
+    var oldData = JSON.parse(localStorage.getItem('highscores')) || [];
     oldData.push(newData);
 
     // save the old + new data to local storage. 
-    localStorage.setItem('highscores', JSON.stringify(oldData))
+    localStorage.setItem('highscores', JSON.stringify(oldData));
+    //redirect ot new page 
+    window.location = "scores.html"; 
 };
 
 
-var highScores = function(){
-    questionsEl.textContent = "High Scores";
-    var scorelist = document.createElement(ol);
-};
 
+// replaces questions HMTL text and ends game once questions array has cycled 
 function resetState(){
     while(answerChoicesEl.firstChild) {
         answerChoicesEl.removeChild(answerChoicesEl.firstChild)
@@ -183,7 +188,7 @@ function resetState(){
     }
 };
 
-
+// starts the timer once the start game button is clicked 
 function startTimer (){
      var timeRemaining = setInterval(function(){
         if(timeScore <= 0 || shuffledQuestions.length < currentQuestionIndex + 1 ){
@@ -196,6 +201,7 @@ function startTimer (){
       }, 1000);
 };
 
+// applies the time penalty when called  
 var timePenalty = function(){
     timeScore = timeScore - 10;
 };

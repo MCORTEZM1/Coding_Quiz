@@ -1,0 +1,28 @@
+#scorelist {
+    text-align: center;
+    list-style: none;
+}
+#score-data {
+    background-color: purple;
+    border: 1px solid black;
+    margin: 0 30%;
+    font-size: 25px;
+    color: white;
+}
+.again-btn {
+    background: rgba(68, 12, 68, 0.877);
+    color: white;
+    font-size: 25px;
+    padding: 6px;
+    border-radius: 10px;
+    list-style: none;
+    width: 125px;
+    text-align: left;
+    padding: 10px;
+    margin: 5px 0;
+    text-decoration: none;
+}
+.restart {
+ display: flex;
+ justify-content: center;
+}
